@@ -87,9 +87,15 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DHG-9w-klX">
                                 <rect key="frame" x="18" y="317" width="378" height="31"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="khb-na-afL" eventType="valueChanged" id="GAN-xP-ce1"/>
+                                </connections>
                             </slider>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7fJ-TT-WzL">
                                 <rect key="frame" x="160" y="405" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperAction:" destination="khb-na-afL" eventType="valueChanged" id="2HT-4e-z4G"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Font Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0V-Qa-rcE">
                                 <rect key="frame" x="20" y="516" width="374" height="30"/>
@@ -114,6 +120,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZqS-8c-bBw"/>
                     </view>
+                    <connections>
+                        <outlet property="changeFontLabel" destination="X0V-Qa-rcE" id="ECQ-IY-9gH"/>
+                        <outlet property="sliderOutlet" destination="DHG-9w-klX" id="qCk-J3-wSJ"/>
+                        <outlet property="stepperOutlet" destination="7fJ-TT-WzL" id="z87-1N-Nxa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69M-IV-A7V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

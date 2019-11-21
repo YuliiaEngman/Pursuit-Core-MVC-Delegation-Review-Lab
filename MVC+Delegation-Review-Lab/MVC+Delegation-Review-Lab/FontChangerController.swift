@@ -31,21 +31,24 @@ class FontChangerController: UIViewController {
     
     //var movie: Movie?
     
+//
+//    var stepperFont: Double = 17.0
+//    var sliderFont: Float = 17.0
     
     var stepperFont: Double = 17.0 {
-       didSet {
-        changeFontLabel.text = "Preview Font Size: \(stepperFont)"
+    didSet {
+    changeFontLabel.text = "Preview Font Size: \(stepperFont)"
     }
-    }
-
-     var sliderFont: Float = 17.0 {
-        didSet {
-            changeFontLabel.text = "Preview Font Size: \(sliderFont)"
-        }
     }
     
+    //    var sliderFont: Float = 17.0 {
+    //        didSet {
+    //            changeFontLabel.text = "Preview Font Size: \(sliderFont)"
+    //        }
+    //    }
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureStepper()
@@ -57,7 +60,7 @@ class FontChangerController: UIViewController {
         stepperOutlet.minimumValue = 5.0
         stepperOutlet.maximumValue = 50.0
         stepperOutlet.stepValue = 1.0
-    
+        
         // default start value
         stepperOutlet.value = 17.0
     }
@@ -71,7 +74,8 @@ class FontChangerController: UIViewController {
     
     @IBAction func sliderAction(_ sender: UISlider) {
         stepperOutlet.value = Double(sender.value)
-        sliderFont = sender.value
+        stepperFont = Double(sender.value)
+        //sliderFont = sender.value
     }
     
     @IBAction func stepperAction(_ sender: UIStepper) {
@@ -82,9 +86,14 @@ class FontChangerController: UIViewController {
     @IBAction func returnButton(_ sender: UIButton) {
     }
     
-
-
+    
 }
+
+
+//@IBAction func stepperFunction(_ sender: UIStepper) {
+//    slider.value = Float(sender.value)
+//    sliderStatus.text = Int(sender.value).description
+//}
 
 
 //var cohort: Double = 6.9 {

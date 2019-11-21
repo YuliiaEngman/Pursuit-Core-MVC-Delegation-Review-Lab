@@ -82,6 +82,7 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = movie.name
         cell.detailTextLabel?.text = movie.year.description
         cell.textLabel?.font = UIFont(name: "Didot", size: CGFloat(fontSize))
+        cell.detailTextLabel?.font = UIFont(name: "Didot", size: CGFloat(fontSize))
         return cell
     }
 }

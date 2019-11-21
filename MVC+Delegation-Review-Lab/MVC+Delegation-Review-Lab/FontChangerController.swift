@@ -28,6 +28,10 @@ class FontChangerController: UIViewController {
     @IBOutlet weak var stepperOutlet: UIStepper!
     @IBOutlet weak var changeFontLabel: UILabel!
     
+    
+    //var movie: Movie?
+    
+    
     var stepperFont: Double = 17.0 {
        didSet {
         changeFontLabel.text = "Preview Font Size: \(stepperFont)"
@@ -74,6 +78,10 @@ class FontChangerController: UIViewController {
         sliderOutlet.value = Float(sender.value)
         stepperFont = sender.value // of type Double
     }
+    
+    @IBAction func returnButton(_ sender: UIButton) {
+    }
+    
 
 
 }

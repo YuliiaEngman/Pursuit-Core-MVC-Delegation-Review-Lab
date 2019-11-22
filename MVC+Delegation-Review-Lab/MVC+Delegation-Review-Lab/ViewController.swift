@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         }
     }
     
-    var fontSize = Float(17.0) {
+    var fontSize: Float! {
         didSet {
            tableView.reloadData()
         }
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     
     func loadData() {
         movies = Movie.allMovies
+        fontSize = Float(17.0)
     }
     
 
@@ -44,6 +45,18 @@ class ViewController: UIViewController {
     fontSize = fontChangingVC.sliderFont
 
 }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let fontChangingVC = segue.destination as? FontChangerController
+            //let indexPath = tableView.indexPathForSelectedRow
+            else {
+                fatalError("failed to get indexPath and fontChangingVC")
+        }
+       //let font = fontSize
+        
+        fontChangingVC.sliderFont = fontSize
+        
+    }
 }
 
 extension ViewController: UITableViewDataSource {

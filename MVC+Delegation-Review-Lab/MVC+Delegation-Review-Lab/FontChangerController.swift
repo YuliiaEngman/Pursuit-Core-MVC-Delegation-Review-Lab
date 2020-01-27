@@ -62,7 +62,5 @@ class FontChangerController: UIViewController {
         sliderFont = Float(sender.value) // of type Float
     }
     
-    @IBAction func returnButton(_ sender: UIButton) {
-    }
 }
 

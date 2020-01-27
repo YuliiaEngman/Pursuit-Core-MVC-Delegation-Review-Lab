@@ -23,6 +23,7 @@ class FontChangerController: UIViewController {
     
     var sliderFont: Float? { // = 17.0 {
         didSet {
+            delegate?.changeSize(self, fontSize: sliderFont ?? 17.0)
             updateUI()
             //changeFontLabel.text = "Preview Font Size: \(Int(sliderFont))"
             

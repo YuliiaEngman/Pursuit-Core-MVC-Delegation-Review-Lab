@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         }
     }
     
-    var fontSize: Float! {
+    var fontSize: CGFloat = 17 {
         didSet {
-           tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -33,28 +33,31 @@ class ViewController: UIViewController {
     
     func loadData() {
         movies = Movie.allMovies
-        fontSize = Float(17.0)
+        fontSize = CGFloat(17.0)
     }
     
-
-@IBAction func changeMovieFont(segue: UIStoryboardSegue) {
-    guard let fontChangingVC = segue.source as? FontChangerController else {
-        fatalError("failed to access CreateEventController")
+    
+    @IBAction func changeMovieFont(segue: UIStoryboardSegue) {
+        //    guard let fontChangingVC = segue.source as? FontChangerController else {
+        //        fatalError("failed to access CreateEventController")
+        //    }
+        //
+        //    fontSize = fontChangingVC.sliderFont
+        //
     }
     
-    fontSize = fontChangingVC.sliderFont
-
-}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let fontChangingVC = segue.destination as? FontChangerController
+        guard let fontVC = segue.destination as? FontChangerController
             //let indexPath = tableView.indexPathForSelectedRow
             else {
                 fatalError("failed to get indexPath and fontChangingVC")
         }
-       //let font = fontSize
+        //let font = fontSize
         
-        fontChangingVC.sliderFont = fontSize
+        fontVC.sliderFont = Float(fontSize)
+        fontVC.font = Double(fontSize)
+        fontVC.delegate = self
         
     }
 }
@@ -74,6 +77,12 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.font = UIFont(name: "Didot", size: CGFloat(fontSize))
         cell.detailTextLabel?.font = UIFont(name: "Didot", size: CGFloat(fontSize))
         return cell
+    }
+}
+
+extension ViewController: FontSize {
+    func changeSize(_ fontVC: FontChangerController, fontSize: Float) {
+        self.fontSize = CGFloat(fontSize)
     }
 }
 

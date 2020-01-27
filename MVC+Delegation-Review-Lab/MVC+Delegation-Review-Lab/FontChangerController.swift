@@ -8,18 +8,38 @@
 
 import UIKit
 
+protocol FontSize: AnyObject {
+    func changeSize(_ fontVC: FontChangerController, fontSize: Float)
+}
+
+
 class FontChangerController: UIViewController {
     
     @IBOutlet weak var sliderOutlet: UISlider!
     @IBOutlet weak var stepperOutlet: UIStepper!
     @IBOutlet weak var changeFontLabel: UILabel!
     
-    var sliderFont: Float? {
+    weak var delegate: FontSize?
+    
+    var sliderFont: Float? { // = 17.0 {
         didSet {
             updateUI()
             //changeFontLabel.text = "Preview Font Size: \(Int(sliderFont))"
+            
         }
     }
+    
+    var font: Double = 17.0 {
+        didSet {
+            delegate?.changeSize(self, fontSize: Float(font))
+        }
+    }
+    
+//    var sliderFont: CGFloat = 17 {
+//          didSet {
+//              updateUI()
+//          }
+//      }
     
     override func viewDidLoad() {
         super.viewDidLoad()
